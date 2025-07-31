@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="14">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="15">
+ <editorsettings>
+  <export target="world.json" format="json"/>
+ </editorsettings>
  <tileset firstgid="1" name="topdownasset" tilewidth="16" tileheight="16" tilecount="1209" columns="39">
   <image source="../topdownasset.png" width="624" height="496"/>
  </tileset>
@@ -37,6 +40,9 @@
    <point/>
   </object>
   <object id="13" name="slime" x="192.25" y="79.75">
+   <point/>
+  </object>
+  <object id="14" name="slime" x="256.75" y="62.75">
    <point/>
   </object>
  </objectgroup>
