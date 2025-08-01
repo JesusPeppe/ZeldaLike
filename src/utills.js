@@ -1,3 +1,7 @@
+export function playAnimIfNotPlaying(gameObj, animName) {
+    if (gameObj.curAnim() !== animName) gameObj.play(animName);
+}
+
 export function colorizeBackground(k, r, g, b) {
     k.add([
         k.rect(k.canvas.width, k.canvas.height),
@@ -31,3 +35,28 @@ export function drawTiles(k, map, layer, tileHeight, tileWidth) {
         ]);
     }
 }
+
+export function generateColliderBoxComponents(k, width, height, pos, tag) {
+    return [
+        k.area({ shape: new k.Rect(k.vec2(0), width, height) }),
+        k.pos(pos),
+        k.body({ isStatic: true}),
+        k.offscreen(),
+        tag,
+    ];
+}
+
+export function drawBoundaries(k, map, layer) {
+    for (const object of layer.objects) {
+        map.add(
+            generateColliderBoxComponents(
+                k,
+                object.width,
+                object.height,
+                k.vec2(object.x, object.y + 16),
+                object.name,
+            )
+        );
+    }
+}
+
