@@ -1,5 +1,6 @@
 import k from "./kaboomContext.js";
 import world from "./scenes/world.js";
+import house from "./scenes/house.js";
 
 k.loadSprite("assets", "../assets/topdownasset.png", {
     sliceX: 39,
@@ -24,11 +25,33 @@ k.loadSprite("assets", "../assets/topdownasset.png", {
             to: 1017,
             loop: true,
         },
+        "slime-idle-down": 858,
+        "slime-down": {
+            from: 858,
+            to: 859,
+            loop: true,
+        },
+        "slime-idle-side": 860,
+        "slime-side": {
+            from: 860,
+            to: 861,
+            loop: true,
+        },
+        "slime-idle-up": 897,
+        "slime-up": {
+            from: 897,
+            to: 898,
+            loop: true,
+        },
+        "oldman-down": 866,
+        "oldman-side": 907,
+        "oldman-up": 905,
     }
 });
 
 const scenes = {
     world,
+    house,
 }
 
 for (const sceneName in scenes) {

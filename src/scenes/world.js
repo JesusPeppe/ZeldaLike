@@ -1,5 +1,5 @@
 import { generatePlayerComponents, setPlayerMovement } from "../entities/player.js";
-import { generateSlimeComponents } from "../entities/slime.js";
+import { generateSlimeComponents, setSlimeAI } from "../entities/slime.js";
 import { colorizeBackground, drawBoundaries, drawTiles, fetchMapData } from "../utills.js";
 
 export default async function world(k) {
@@ -47,14 +47,27 @@ export default async function world(k) {
 
     k.camScale(3);
     k.camPos(entities.player.worldPos());
-    k.onUpdate(async () => {
-        if (entities.player.pos.dist(k.campos())) {
-            await k.tween(
+    k.onUpdate(() => {
+        if (entities.player.pos.dist(k.camPos())) {
+            k.tween(
                 k.camPos(),
-                entities.player.worldPos(), 0.15, () => {}
+                entities.player.worldPos(),
+                0.15,
+                (newPos) => {
+                    k.camPos(newPos);
+                },
+                k.easings.linear,
             );
         }
     })
 
     setPlayerMovement(k, entities.player);
+
+    for (const slime of entities.slimes) {
+        setSlimeAI(k, slime);
+    }
+
+    entities.player.onCollide("door-entrance", () => {
+        k.go("house");
+    })
 }

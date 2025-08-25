@@ -1,4 +1,4 @@
-import { playAnimIfNotPlaying } from "../utills.js";
+import { areAnyOfTheseKeysDown, playAnimIfNotPlaying } from "../utills.js";
 
 export function generatePlayerComponents(k, pos) {
     return [
@@ -21,7 +21,7 @@ export function generatePlayerComponents(k, pos) {
 
 export function setPlayerMovement(k, player) {
     k.onKeyDown((key) => {
-        if (["left", "a"].includes(key)) {
+        if (["left", "a"].includes(key) && !areAnyOfTheseKeysDown(k, ["up", "down", "w", "s"])) {
             player.flipX = true;
             playAnimIfNotPlaying(player, "player-side");
             player.move(-player.speed, 0);
@@ -29,7 +29,7 @@ export function setPlayerMovement(k, player) {
             return;
         }
 
-        if (["right", "d"].includes(key)) {
+        if (["right", "d"].includes(key) && !areAnyOfTheseKeysDown(k, ["up", "down", "w", "s"])) {
             player.flipX = false;
             playAnimIfNotPlaying(player, "player-side");
             player.move(player.speed, 0);
