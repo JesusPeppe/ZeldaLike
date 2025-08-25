@@ -1,4 +1,4 @@
-import { playAnimIfNotPlaying } from "../utills";
+import { playAnimIfNotPlaying } from "../utills.js";
 
 export function generateOldManComponents(k, pos) {
     return [
