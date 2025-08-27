@@ -1,9 +1,8 @@
-/*import {
+import {
   endInteraction,
   generateOldManComponents,
   startInteraction,
-} from "../entities/oldman.js";*/
-import { generateOldManComponents } from "../entities/oldman.js";
+} from "../entities/oldman.js";
 import {
   generatePlayerComponents,
   setPlayerMovement,
@@ -66,11 +65,11 @@ export default async function house(k) {
   });
 
   entities.player.onCollide("oldman", async () => {
-    //await startInteraction(k, entities.oldman, entities.player);
+    await startInteraction(k, entities.oldman, entities.player);
   });
 
   entities.player.onCollideEnd("oldman", () => {
-    //endInteraction(entities.oldman);
+    endInteraction(entities.oldman);
   });
 
   //healthBar(k);

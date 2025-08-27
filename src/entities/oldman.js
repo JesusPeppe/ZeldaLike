@@ -1,3 +1,5 @@
+import oldmanLines from "../content/oldmanDialogues.js";
+import { dialog } from "../uiComponents/dialog.js";
 import { playAnimIfNotPlaying } from "../utills.js";
 
 export function generateOldManComponents(k, pos) {
@@ -26,4 +28,12 @@ export async function startInteraction(k, oldman, player) {
     if (player.direction === "down") {
         playAnimIfNotPlaying(oldman, "oldman-up");
     }
+
+    const responses = oldmanLines.english;
+
+    dialog(k, k.vec2(250, 500), responses[0]);
+}
+
+export function endInteraction(k, oldman) {
+
 }

@@ -21,7 +21,7 @@ export function generatePlayerComponents(k, pos) {
 
 export function setPlayerMovement(k, player) {
     k.onKeyDown((key) => {
-        if (["left", "a"].includes(key) && !areAnyOfTheseKeysDown(k, ["up", "down", "w", "s"])) {
+        if (["left"].includes(key) && !areAnyOfTheseKeysDown(k, ["up", "down", "w", "s", "a"])) {
             player.flipX = true;
             playAnimIfNotPlaying(player, "player-side");
             player.move(-player.speed, 0);
