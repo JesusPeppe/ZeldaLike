@@ -16,7 +16,7 @@ export async function dialog(k, pos, content) {
 
     const dialogBox = k.add([k.rect(800, 200), k.pos(pos), k.fixed()]);
     const textContainer = dialogBox.add([
-        k.text("", { size: 30, width: 700, lineSpacing: 15 }),
+        k.text("", { size: gameState.getFontSize(), width: 700, lineSpacing: 15 }),
         k.color(27, 29, 52),
         k.pos(20, 40),
         k.fixed(),
